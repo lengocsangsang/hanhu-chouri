@@ -4,10 +4,7 @@ const host = window.location.host; // e.g., 'yourapp.herokuapp.com'
 
 async function checkSupplierInfo() {
   try {
-    const response = await fetch(
-      `${protocol}//${host}/api/v1/suppliers`,
-      supplierData``
-    );
+    const response = await fetch(`${protocol}//${host}/api/v1/suppliers`);
     const suppliers = await response.json();
 
     if (suppliers.length === 0) {
