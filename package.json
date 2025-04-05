@@ -2,7 +2,10 @@
   "name": "chouri",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "nodemon ./starter/server.js",
+    "start:prod": "NODE_ENV=production nodemon ./starter/server.js",
+    "watch:js": "parcel watch ./starter/public/js/index.js --out-dir ./starter/public/js --out-file bundle.js",
+    "build:js": "parcel build ./starter/public/js/index.js --out-dir ./starter/public/js --out-file bundle.js"
   },
   "author": "",
   "license": "ISC",
