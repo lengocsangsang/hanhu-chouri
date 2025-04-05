@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Input form</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <!-- Include SheetJS -->
+  </head>
+  <body>
+    <form action="">
+      <div class="head-container">
+        <div class="icon-container">
+          <img src="./img/image.png" alt="Icon" class="icon" />
+        </div>
+        <div class="company-name">CHORI VIETNAM CO.,LTD</div>
+        <div class="company-address-1">
+          Unit 1705-1706, 17th Floor, Saigon Riverside Office Center
+        </div>
+        <div class="company-address-2">
+          2A-4A Ton Duc Thang St, Ben Nghe Ward, Dist. 1, HCMC
+        </div>
+        <div class="company-contact">
+          TEL:+84-8-3822-0348/49 FAX:+84-8-3822-0390
+        </div>
+      </div>
+
+      <div class="main-container">
+        <div class="purchase-order"><h2>PURCHASE ORDER</h2></div>
+        <div class="line-9">
+          <span class="line-9-1">
+            <label for="PO-NO">P/O NO:</label>
+            <input
+              type="text"
+              class="PO-NO"
+              id="PO-NO"
+              placeholder="25SSTYB104B01"
+            />
+            <div class="PO-NO-FORMAT">25SSTYB104B01</div>
+          </span>
+          <span class="line-9-2">
+            <label for="PO-DATE" class="PO-DATE-LABEL">DATE:</label>
+            <input
+              type="text"
+              class="PO-DATE"
+              id="PO-DATE"
+              placeholder="7-March-2025"
+            />
+            <div class="PO-DATE-FORMAT">Date-Month-Year</div>
+          </span>
+        </div>
+        <div class="line-10">
+          <label for="ref-no" class="ref-no">REF NO:</label>
+          <input type="text" class="ref-no" id="ref-no" />
+        </div>
+        <div class="line-11">
+          <label for="to" class="to">TO:</label>
+          <input type="text" class="to long" id="to" />
+        </div>
+        <div class="line-12">
+          <label for="address" class="to">ADDRESS:</label>
+          <input type="text" class="address long" id="address" />
+        </div>
+        <div class="line-13">
+          <label for="delivery" class="to">DELIVERY:</label>
+          <input type="text" class="delivery" id="delivery" />
+        </div>
+        <div class="line-14">
+          <label for="shipment" class="to">SHIPMENT:</label>
+          <input type="text" class="shipment" id="shipment" />
+        </div>
+        <div class="line-15">
+          <label for="loading" class="to">LOADING:</label>
+          <input type="text" class="loading" id="loading" />
+        </div>
+        <div class="line-16">
+          <label for="pic" class="to">PIC:</label>
+          <input type="text" class="pic" id="pic" />
+        </div>
+        <div class="line-17">
+          <label for="payment" class="to">PAYMENT:</label>
+          <input type="text" class="payment" id="payment" />
+        </div>
+        <div class="line-18">
+          <label for="amount" class="to">AMOUNT:</label>
+          <input type="text" class="amount" id="amount" />
+        </div>
+        <div class="line-19">
+          <label for="commodity" class="to">COMMODITY:</label>
+          <input type="text" class="commodity" id="commodity" />
+        </div>
+
+        <button type="button" onclick="exportToExcel()">Export to Excel</button>
+      </div>
+    </form>
+    <script>
+      function exportToExcel() {
+        // Get form data
+        const data = {
+          "P/O NO": document.getElementById("PO-NO").value,
+          DATE: document.getElementById("PO-DATE").value,
+          "REF NO": document.getElementById("ref-no").value,
+          TO: document.getElementById("to").value,
+          ADDRESS: document.getElementById("address").value,
+          DELIVERY: document.getElementById("delivery").value,
+          SHIPMENT: document.getElementById("shipment").value,
+          LOADING: document.getElementById("loading").value,
+          PIC: document.getElementById("pic").value,
+          PAYMENT: document.getElementById("payment").value,
+          AMOUNT: document.getElementById("amount").value,
+          COMMODITY: document.getElementById("commodity").value,
+        };
+
+        // Convert data to an array format
+        const worksheetData = [
+          ["Field", "Value"],
+          ...Object.entries(data), // Convert object to array
+        ];
+
+        // Create a workbook and add the worksheet
+        const workbook = XLSX.utils.book_new();
+        const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Purchase Order");
+
+        // Export the workbook to an Excel file
+        XLSX.writeFile(workbook, "purchase_order.xlsx");
+      }
+    </script>
+  </body>
+</html>

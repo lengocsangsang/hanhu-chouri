@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../css/supplierformstyle.css" />
+  </head>
+  <body>
+    <h1 class="">SUPPLIER INFO INPUT FORM</h1>
+    <p class="explanation">
+      If there are multi-items to input for a box, please seperate them by ","
+    </p>
+
+    <form action="#" class="supplier-form">
+      <div class="supplier-name">
+        <label for="supplier-name-input" class="label supplier-name-label"
+          >Supplier name</label
+        >
+        <input type="text" id="supplier-name-input" />
+      </div>
+
+      <div class="customer-code">
+        <label for="customer-code-input" class="label customer-code-label"
+          >Customer code</label
+        >
+        <input type="text" id="customer-code-input" />
+      </div>
+
+      <div class="supplier-address">
+        <label for="supplier-address-input" class="label supplier-address-label"
+          >Supplier address</label
+        >
+        <input type="text" id="supplier-address-input" />
+      </div>
+
+      <div class="supplier-pic">
+        <label for="supplier-pic-input" class="label supplier-pic-label"
+          >Supplier PIC</label
+        >
+        <input type="text" id="supplier-pic-input" />
+      </div>
+
+      <div class="supplier-payment">
+        <label for="supplier-payment-input" class="label supplier-payment-label"
+          >Payment term</label
+        >
+        <input type="text" id="supplier-payment-input" />
+      </div>
+
+      <div class="supplier-delivery">
+        <label
+          for="supplier-delivery-input"
+          class="label supplier-delivery-label"
+          >Delivery term</label
+        >
+        <input type="text" id="supplier-delivery-input" />
+      </div>
+
+      <div class="product-des">
+        <label for="product-des-input" class="label product-des-label"
+          >Product description</label
+        >
+        <input type="text" id="product-des-input" />
+      </div>
+
+      <div class="submit-button">
+        <button class="submit-button-itself">Submit</button>
+      </div>
+    </form>
+
+    <script type="module" src="../js/createSupplierDoc.js"></script>
+  </body>
+</html>

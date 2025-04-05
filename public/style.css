@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+/* Head Container Styles */
+.head-container {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.icon-container {
+  margin-bottom: 1em;
+}
+
+.icon {
+  width: 100px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.company-name {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.company-address-1,
+.company-address-2,
+.company-contact {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Main Container Styles */
+.main-container {
+  background-color: #fff;
+  padding: 2em;
+  border-radius: 0.5em;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.purchase-order {
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.purchase-order h2 {
+  font-size: 1.5em;
+  color: #007bff; /* Header color */
+}
+
+/* Form Field Styles */
+.line-9 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+label {
+  min-width: 7em;
+  display: inline-block;
+  font-weight: bold;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 0.3em;
+  padding: 0.5em;
+  font-size: 1em;
+  width: calc(100% - 10em); /* Adjust input width */
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #007bff; /* Change border color on focus */
+  outline: none; /* Remove outline */
+}
+
+.long {
+  min-width: 25em; /* Minimum width for long inputs */
+}
+
+.line-10,
+.line-11,
+.line-12,
+.line-13,
+.line-14,
+.line-15,
+.line-16,
+.line-17,
+.line-18,
+.line-19 {
+  margin-bottom: 1em; /* Space between fields */
+}
+
+/* Formatting Classes */
+.PO-NO-FORMAT,
+.PO-DATE-FORMAT {
+  font-size: 0.8em;
+  color: #888;
+  margin-top: 0.2em; /* Space above format hints */
+}
