@@ -12,12 +12,9 @@ const SupplierPayment = document.getElementById("supplier-payment-input");
 
 const SupplierDelivery = document.getElementById("supplier-delivery-input");
 
-document.querySelector(".submit-button").addEventListener("click", function () {
-  console.log(
-    "createSupplierDoc.js - SupplierDelivery.value:",
-    SupplierDelivery.value
-  );
-});
+const protocol = window.location.protocol; // e.g., 'http:' or 'https:'
+const host = window.location.host; // e.g., 'yourapp.herokuapp.com'
+
 document
   .querySelector(".submit-button") // Assuming this class is assigned to the button
   .addEventListener("click", async function (e) {
@@ -39,7 +36,7 @@ document
 
     try {
       const response = await axios.post(
-        `${protocol}://${host}/supplier/api/v1/supplierdoccreate`,
+        `${protocol}//${host}/supplier/api/v1/supplierdoccreate`,
         supplierData
       );
       alert("Supplier created successfully!"); // Notify the user
