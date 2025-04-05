@@ -13,7 +13,10 @@ const SupplierPayment = document.getElementById("supplier-payment-input");
 const SupplierDelivery = document.getElementById("supplier-delivery-input");
 
 document.querySelector(".submit-button").addEventListener("click", function () {
-  console.log(SupplierDelivery.value);
+  console.log(
+    "createSupplierDoc.js - SupplierDelivery.value:",
+    SupplierDelivery.value
+  );
 });
 document
   .querySelector(".submit-button") // Assuming this class is assigned to the button
@@ -32,7 +35,7 @@ document
       address: supplierAddress.value,
     };
 
-    console.log(supplierData); // Log supplier data for debugging
+    console.log("createSupplierDoc.js - supplierData:", supplierData); // Log supplier data for debugging
 
     try {
       const response = await axios.post(
@@ -42,7 +45,6 @@ document
       alert("Supplier created successfully!"); // Notify the user
       console.log("Response from server:", response.data);
     } catch (error) {
-      console.error("Error creating supplier:", error.response.data);
-      alert("Error creating supplier: " + error.response.data.message); // Show error message
+      console.error("Error creating supplier:", error.response);
     }
   });
