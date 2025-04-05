@@ -36,7 +36,7 @@ document
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/supplier/api/v1/supplierdoccreate",
+        `${protocol}://${host}/supplier/api/v1/supplierdoccreate`,
         supplierData
       );
       alert("Supplier created successfully!"); // Notify the user

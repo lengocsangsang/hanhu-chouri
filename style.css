@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  display: flex;
+  flex: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+
+  width: 40%;
+  margin: 20vh auto;
+}
