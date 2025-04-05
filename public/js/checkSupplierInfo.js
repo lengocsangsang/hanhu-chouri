@@ -1,51 +1,57 @@
-const Supplier = require("../../models/supplierModel");
+// checkSupplierInfo.js (frontend)
+const protocol = window.location.protocol; // e.g., 'http:' or 'https:'
+const host = window.location.host; // e.g., 'yourapp.herokuapp.com'
 
 async function checkSupplierInfo() {
-  const suppliers = await Supplier.find();
+  try {
+    const response = await fetch(
+      `${protocol}//${host}/api/v1/suppliers`,
+      supplierData``
+    );
+    const suppliers = await response.json();
 
-  // Check if suppliers array is empty
-  if (suppliers.length === 0) {
-    const item = document.createElement("div");
-    item.classList.add("item1");
-    item.textContent = "There is no supplier input yet";
-    document.body.appendChild(item); // Append the message to the body or a specific container
-  } else {
-    suppliers.forEach((supplier) => {
-      // Corrected the parameters of forEach
-      const item = document.createElement("ul");
-      item.classList.add("item");
-
-      // Create list items for each supplier property
-      const name = document.createElement("li");
-      name.textContent = supplier.name;
-
-      const code = document.createElement("li");
-      code.textContent = supplier.customerCode;
-
-      const deliveryTerm = document.createElement("li");
-      deliveryTerm.textContent = supplier.deliveryTerm.join(", "); // Assuming this is an array
-
-      const paymentTerm = document.createElement("li");
-      paymentTerm.textContent = supplier.paymentTerm.join(", "); // Assuming this is an array
-
-      const pic = document.createElement("li");
-      pic.textContent = supplier.pic;
-
-      const productDes = document.createElement("li");
-      productDes.textContent = supplier.productDes;
-
-      // Append list items to the unordered list
-      item.appendChild(name);
-      item.appendChild(code);
-      item.appendChild(deliveryTerm);
-      item.appendChild(paymentTerm);
-      item.appendChild(pic);
-      item.appendChild(productDes);
-
-      // Append the unordered list to the body or a specific container
+    if (suppliers.length === 0) {
+      const item = document.createElement("div");
+      item.classList.add("item1");
+      item.textContent = "There is no supplier input yet";
       document.body.appendChild(item);
-    });
+    } else {
+      suppliers.forEach((supplier) => {
+        const item = document.createElement("ul");
+        item.classList.add("item");
+
+        const name = document.createElement("li");
+        name.textContent = supplier.name;
+
+        const code = document.createElement("li");
+        code.textContent = supplier.customerCode.join(", ");
+
+        const deliveryTerm = document.createElement("li");
+        deliveryTerm.textContent = supplier.deliveryTerm.join(", ");
+
+        const paymentTerm = document.createElement("li");
+        paymentTerm.textContent = supplier.paymentTerm.join(", ");
+
+        const pic = document.createElement("li");
+        pic.textContent = supplier.pic;
+
+        const productDes = document.createElement("li");
+        productDes.textContent = supplier.productDes.join(", ");
+
+        item.appendChild(name);
+        item.appendChild(code);
+        item.appendChild(deliveryTerm);
+        item.appendChild(paymentTerm);
+        item.appendChild(pic);
+        item.appendChild(productDes);
+
+        document.body.appendChild(item);
+      });
+    }
+  } catch (error) {
+    console.error("Error fetching suppliers:", error);
   }
 }
 
+// Call the function
 checkSupplierInfo();

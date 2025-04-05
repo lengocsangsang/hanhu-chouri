@@ -14,6 +14,16 @@ mongoose.connect(process.env.MONGODB_URI, {
   useUnifiedTopology: true,
 });
 
+// API endpoint to get all suppliers
+app.get("/api/v1/suppliers", async (req, res) => {
+  try {
+    const suppliers = await Supplier.find();
+    res.json(suppliers);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 app.use("/", userView);
 app.use("/supplier", supplier);
 app.listen(process.env.PORT, () => {
